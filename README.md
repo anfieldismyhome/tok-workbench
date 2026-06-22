@@ -2,10 +2,9 @@
 
 A free, browser-based prompt generator for IB Theory of Knowledge — helping students and teachers get more out of AI assistants for source analysis, knowledge questions, essays, exhibitions, and more.
 
-**[→ Open the tool](https://yourusername.github.io/tok-workbench)** ← replace with your actual GitHub Pages URL once deployed
+**[→ Open the tool](https://anfieldismyhome.github.io/tok-workbench)** ← replace with your actual GitHub Pages URL once deployed
 
 ---
-
 ## What it does
 
 TOK Thinking Workbench does not call any AI. It has no backend, no database, no API keys, and no login. Everything runs in your browser.
@@ -56,7 +55,7 @@ The difference between a generic prompt ("analyse this source for my TOK essay")
 No installation required. No npm install. No build step.
 
 ```bash
-git clone https://github.com/yourusername/tok-workbench.git
+git clone https://github.com/anfieldismyhome/tok-workbench.git
 cd tok-workbench
 python3 -m http.server 8080
 ```
@@ -75,7 +74,7 @@ Open `http://localhost:8080` in any browser.
 4. Choose **main** branch, **/ (root)** folder
 5. Click **Save**
 
-Your site will be live at `https://yourusername.github.io/tok-workbench` within a minute or two.
+Your site will be live at `https://anfieldismyhome.github.io/tok-workbench` within a minute or two.
 
 ---
 
