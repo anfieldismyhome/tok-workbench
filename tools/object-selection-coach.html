@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Selection Coach — TOK Thinking Workbench</title>
+  <meta name="description" content="Generate a prompt that helps choose or evaluate real-world objects for a TOK Exhibition." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%232f5d50%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Georgia,serif%22>T</text></svg>" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header id="site-header" class="site-header"></header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">All tools</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="../index.html#exhibition-development">Exhibition Development</a>
+        <span class="breadcrumb__sep">/</span>
+        <span class="breadcrumb__current">Object Selection Coach</span>
+      </nav>
+    </div>
+
+    <div class="tool-header">
+      <div class="container">
+        <div class="tool-header__badges">
+          <span class="badge badge--module">Exhibition Development</span>
+        </div>
+        <h1>Object Selection Coach</h1>
+        <p>Generate ideas for exhibition objects from your own life and context, or stress-test objects you already have in mind, before committing to your final three.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="tool-body">
+        <section class="tool-panel" aria-labelledby="form-heading">
+          <h2 id="form-heading">1. Your details</h2>
+          <div id="tool-form"></div>
+          <div class="form-actions">
+            <button type="button" id="generate-btn" class="btn btn--primary">Generate prompt</button>
+            <button type="button" id="reset-btn" class="btn btn--ghost">Reset</button>
+          </div>
+        </section>
+
+        <section class="tool-panel tool-panel--output" aria-labelledby="output-heading">
+          <h2 id="output-heading">2. Your prompt</h2>
+          <div id="tool-output"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script type="module">
+    import { initSiteShell } from "../assets/js/core/siteShell.js";
+    import { initToolPage } from "../assets/js/core/toolPage.js";
+    import { fields, generate } from "../assets/js/tools/objectSelectionCoach.js";
+
+    initSiteShell({ prefix: "../", activeModuleId: "exhibition-development" });
+
+    initToolPage({
+      fields,
+      generate,
+      emptyStateIcon: "🎯",
+      emptyStateMessage: "Choose your IA prompt and describe your context to generate an object-selection prompt.",
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/* ============================================
+   TOK Thinking Workbench — components.css
+   Forms, buttons, badges, output panel
+   ============================================ */
+
+/* --- Badges --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+.badge--module { background: var(--color-primary-soft); color: var(--color-primary-dark); }
+.badge--aok { background: var(--color-aok-soft); color: var(--color-aok); }
+.badge--kf { background: var(--color-kf-soft); color: var(--color-kf); }
+.badge--new { background: var(--color-accent-soft); color: var(--color-accent); }
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3) var(--sp-5);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  line-height: 1;
+}
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: var(--color-primary-dark); text-decoration: none; }
+.btn--secondary { background: var(--color-surface); color: var(--color-ink); border-color: var(--color-border-strong); }
+.btn--secondary:hover { border-color: var(--color-primary); color: var(--color-primary); text-decoration: none; }
+.btn--ghost { background: transparent; color: var(--color-ink-soft); }
+.btn--ghost:hover { background: var(--color-surface-alt); text-decoration: none; }
+.btn--full { width: 100%; }
+.btn--sm { padding: var(--sp-2) var(--sp-3); font-size: var(--fs-xs); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* --- Form elements --- */
+.field { margin-bottom: var(--sp-5); }
+.field__label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--sp-2);
+}
+.field__required { color: var(--color-accent); font-weight: 400; }
+.field__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-faint);
+  margin: var(--sp-1) 0 0;
+}
+.field__error {
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+  margin: var(--sp-1) 0 0;
+  display: none;
+}
+.field.has-error .field__error { display: block; }
+.field.has-error textarea,
+.field.has-error input,
+.field.has-error select { border-color: var(--color-danger); }
+
+.input, textarea, select {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3);
+  color: var(--color-ink);
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+textarea { resize: vertical; min-height: 5.5rem; line-height: var(--lh-normal); font-family: var(--font-sans); }
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234a5048' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right var(--sp-3) center; padding-right: var(--sp-7); }
+
+.char-count {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-faint);
+  text-align: right;
+  margin-top: var(--sp-1);
+}
+.char-count.is-over { color: var(--color-danger); }
+
+/* --- Checkbox / radio groups (for multi-select chips) --- */
+.chip-group { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.chip {
+  position: relative;
+}
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-size: var(--fs-sm);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+  user-select: none;
+}
+.chip input:checked + label {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.chip input:focus-visible + label {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* --- Fieldset grouping --- */
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 var(--sp-5);
+}
+.fieldset legend {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  padding: 0 0 var(--sp-2);
+}
+
+/* --- Form actions row --- */
+.form-actions {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--color-border);
+}
+
+/* --- Output panel --- */
+.output-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  flex-wrap: wrap;
+}
+.output-panel__title { font-size: var(--fs-md); margin: 0; }
+.output-panel__actions { display: flex; gap: var(--sp-2); }
+
+.output-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--sp-3);
+  padding: var(--sp-8) var(--sp-4);
+  color: var(--color-ink-faint);
+  border: 1.5px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  min-height: 220px;
+}
+.output-empty__icon { font-size: 1.8rem; opacity: 0.6; }
+.output-empty p { max-width: 32ch; font-size: var(--fs-sm); margin: 0; }
+
+.prompt-output {
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: var(--lh-relaxed);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.prompt-output strong { color: var(--color-primary-dark); }
+
+.output-meta {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-top: var(--sp-4);
+}
+
+.why-this-works {
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--color-border);
+}
+.why-this-works__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+  font-weight: 600;
+  padding: var(--sp-1) 0;
+  user-select: none;
+}
+.why-this-works__toggle::-webkit-details-marker { display: none; }
+.why-this-works__toggle:hover { color: var(--color-primary-dark); }
+.why-this-works__chevron {
+  transition: transform var(--dur-base) var(--ease);
+  font-size: var(--fs-base);
+}
+.why-this-works[open] .why-this-works__chevron { transform: rotate(180deg); }
+.why-this-works ul {
+  margin: var(--sp-3) 0 0;
+  padding-left: 1.1em;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+}
+.why-this-works li { margin-bottom: var(--sp-2); }
+.why-this-works li:last-child { margin-bottom: 0; }
+
+/* --- Toast (copy confirmation) --- */
+.toast {
+  position: fixed;
+  bottom: var(--sp-6);
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--color-ink);
+  color: var(--color-bg);
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+  z-index: 200;
+}
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Info callout (used inside tool panels for guidance) --- */
+.callout {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-5);
+}
+.callout--info { background: var(--color-aok-soft); color: var(--color-ink-soft); }
+.callout--tip { background: var(--color-warn-soft); color: var(--color-ink-soft); }
+.callout strong { color: var(--color-ink); }
+
+/* --- Small utility --- */
+.stack-sm > * + * { margin-top: var(--sp-3); }
+.text-faint { color: var(--color-ink-faint); }
+.mt-0 { margin-top: 0; }
